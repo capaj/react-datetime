@@ -5,7 +5,7 @@ import moment from 'moment'
 import 'moment-timezone'
 import utils from './testUtils'
 import Enzyme from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
 
 Enzyme.configure({ adapter: new Adapter() })
 

@@ -6,13 +6,13 @@ module.exports = {
     require: true,
     module: true
   },
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint', 'prettier'],
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',
     ecmaFeatures: {
       modules: true
     }
-  },
-  plugins: ['prettier']
+  }
 }

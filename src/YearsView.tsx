@@ -1,6 +1,7 @@
 import React from 'react'
 import createClass from 'create-react-class'
 import onClickOutside from '@capaj/react-onclickoutside'
+import { Moment } from 'moment'
 
 const DateTimePickerYears = onClickOutside(
   createClass({
@@ -41,7 +42,7 @@ const DateTimePickerYears = onClickOutside(
       )
     },
 
-    renderYears(year) {
+    renderYears(year: number) {
       let years = []
       let i = -1
       const rows = []
@@ -50,11 +51,11 @@ const DateTimePickerYears = onClickOutside(
       const isValid = this.props.isValidDate || this.alwaysValidDate
       let classes: string
       let props
-      let currentYear
+      let currentYear: Moment
       let isDisabled: boolean
       let noOfDaysInYear
       let daysInYear: number[]
-      let validDay: number
+      let validDay: number | undefined
       const // Month and date are irrelevant here because
         // we're only interested in the year
         irrelevantMonth = 0
@@ -74,7 +75,7 @@ const DateTimePickerYears = onClickOutside(
         noOfDaysInYear = currentYear.endOf('year').format('DDD')
         daysInYear = Array.from(
           {
-            length: noOfDaysInYear
+            length: Number(noOfDaysInYear)
           },
           (e, i) => i + 1
         )
@@ -110,7 +111,7 @@ const DateTimePickerYears = onClickOutside(
       return rows
     },
 
-    updateSelectedYear(event) {
+    updateSelectedYear(event: any) {
       this.props.updateSelectedDate(event)
     },
 
